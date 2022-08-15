@@ -14,7 +14,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 [x] - make routes folder for routers
 [x] - set up server (npm init --yes, npm install express)
 [x] - set up pg (npm install pg)
-[] - set up sql database with name "weekend-to-do-app"
+[x] - set up sql database with name "weekend-to-do-app"
 [x] - change pool.js database to match sql
 [] - add input fields and a submit button for to do list
 [] - add table heading and rows/columns to keep data
