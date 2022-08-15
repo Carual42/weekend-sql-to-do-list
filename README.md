@@ -20,7 +20,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 [x] - add table heading and rows/columns to keep data
 [x] - add get ready now function working
 [] - add styling to make it look pretty (later)
-[] - GET request to display data and add complete and delete buttons to each item
-[] - POST request to add to items to data base
-[] - DELETE request to delete items
-[] - PUT request to update the completion of task
+[x] - GET request to display data and add complete and delete buttons to each item
+[x] - POST request to add to items to data base
+[x] - DELETE request to delete items
+[x] - PUT request to update the completion of task

@@ -4,7 +4,7 @@ $( document ).ready( function(){
     // setupClickListeners()
     $('#addTask').on('click', sendTaskToServer);
     $('body').on('click', '.completebtn', updateStatus);
-    // $('body').on('click', '.deletebtn', deleteKoala);
+    $('body').on('click', '.deletebtn', deleteTask);
     // load existing task on page load
     getTask();
   
@@ -15,7 +15,7 @@ $( document ).ready( function(){
     console.log('in updateStatus');
     $.ajax({
       type: 'PUT',
-      url: `/toDO/${toDoId}`
+      url: `/toDo/${toDoId}`
   ,  }).then(function(response) {
       getTask();
     }).catch(function(error) {
@@ -23,19 +23,18 @@ $( document ).ready( function(){
       alert('Something went wrong in updateStatus');
     });
   } 
-  ; // end transferKoala}
+  ;
   
-//   function deleteKoala(){
-//     const koalaId = $(this).data('id');
-//     console.log('koalaId:', koalaId);
-//     $.ajax({
-//           type: 'DELETE',
-//           url: `/toDO/${toDOId}`
-//   }).then(function(response){
-//     getKoalas();
-//   }).catch(function(error){
-//     alert('something went wrong in delete', error);
-//   });}
+  function deleteTask(){
+    const toDoId = $(this).data('id');
+    $.ajax({
+          type: 'DELETE',
+          url: `/toDo/${toDoId}`
+  }).then(function(response){
+    getTask();
+  }).catch(function(error){
+    alert('something went wrong in delete', error);
+  });}
   
   function sendTaskToServer() {
     console.log('in sendTaskToServer');
@@ -53,11 +52,10 @@ $( document ).ready( function(){
         console.log(error);
         alert('Something went wrong. Please try again.');
     });
-  } // end sendKoalaToServer
+  } // 
   
   function getTask(){
     console.log( 'in getTask' );
-    // ajax call to server to get koalas
     $.ajax({
       type: 'GET',
       url: '/toDO',

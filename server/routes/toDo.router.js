@@ -20,7 +20,7 @@ toDoRouter.post('/', (req, res) => {
     console.log(taskToPost)
     const queryText = 
     `INSERT INTO "to_Do" ("task", "complete")
-     VALUES ('$1', '$2');`
+     VALUES ($1, $2);`;
     pool.query(queryText, [taskToPost.task, taskToPost.complete])
         .then((results) => {
             console.log(results);
@@ -34,7 +34,7 @@ toDoRouter.post('/', (req, res) => {
 toDoRouter.put('/:id', (req, res) => {
     const taskId = req.params.id;
     console.log(req.body);
-    const queryText = `UPDATE "to_do" SET "complete" = 'Y'
+    const queryText = `UPDATE "to_Do" SET "complete" = 'Y'
                         WHERE "id" = $1`;
     pool.query(queryText, [taskId])
         .then((results) => {
@@ -45,23 +45,19 @@ toDoRouter.put('/:id', (req, res) => {
         });
 });
 
-// // PUT
-
-
-// // DELETE
-// koalaRouter.delete('/:id', (req, res) => {
-//     const koalaId = req.params.id;
-//     console.log('koalaID:', koalaId);
-//     const queryText = `DELETE FROM "koalas"
-//                     WHERE "id" = $1`;
-//     pool.query(queryText, [koalaId])
-//     .then((results) => {
-//         res.sendStatus(200);
-//     }).catch((error) => {
-//         console.log('error in DELETE /koalas', error);
-//         res.sendStatus(500);
-//     });
-// });
+// DELETE
+toDoRouter.delete('/:id', (req, res) => {
+    const toDoId = req.params.id;
+    const queryText = `DELETE FROM "to_Do"
+                    WHERE "id" = $1`;
+    pool.query(queryText, [toDoId])
+    .then((results) => {
+        res.sendStatus(200);
+    }).catch((error) => {
+        console.log('error in DELETE /toDo', error);
+        res.sendStatus(500);
+    });
+});
 
 
 module.exports = toDoRouter;
