@@ -16,8 +16,8 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 [x] - set up pg (npm install pg)
 [x] - set up sql database with name "weekend-to-do-app"
 [x] - change pool.js database to match sql
-[] - add input fields and a submit button for to do list
-[] - add table heading and rows/columns to keep data
+[x] - add input fields and a submit button for to do list
+[x] - add table heading and rows/columns to keep data
 [] - add styling to make it look pretty (later)
 [] - GET request to display data and add complete and delete buttons to each item
 [] - POST request to add to items to data base
