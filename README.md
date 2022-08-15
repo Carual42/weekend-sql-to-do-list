@@ -18,6 +18,7 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/re
 [x] - change pool.js database to match sql
 [x] - add input fields and a submit button for to do list
 [x] - add table heading and rows/columns to keep data
+[x] - add get ready now function working
 [] - add styling to make it look pretty (later)
 [] - GET request to display data and add complete and delete buttons to each item
 [] - POST request to add to items to data base
