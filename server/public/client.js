@@ -5,6 +5,7 @@ $( document ).ready( function(){
     $('#addTask').on('click', sendTaskToServer);
     $('body').on('click', '.completebtn', updateStatus);
     $('body').on('click', '.deletebtn', deleteTask);
+    $('body').on('click', '.completebtn', turnYellow)
     // load existing task on page load
     getTask();
   
@@ -17,7 +18,6 @@ $( document ).ready( function(){
       type: 'PUT',
       url: `/toDo/${toDoId}`
   ,  }).then(function(response) {
-      getTask();
     }).catch(function(error) {
       console.log(error);
       alert('Something went wrong in updateStatus');
@@ -47,6 +47,7 @@ $( document ).ready( function(){
       }
     }).then( function (response) {
         console.log('response');
+        $('#taskToDo').val('');
         getTask(); // need to create, will display the task array on the DOM
     }).catch( function (error) {
         console.log(error);
@@ -77,9 +78,11 @@ $( document ).ready( function(){
           <tr>
           <td>${response[i].task}</td>
           <td>${response[i].complete}</td>
+          <td><button class="completebtn" data-id="${response[i].id}">complete</button></td>
           <td><button class="deletebtn" data-id="${response[i].id}">delete</button></td>
         </tr>
           `);
+          turnYellow();
         }
       }
     }).catch( function (error) {
@@ -87,3 +90,9 @@ $( document ).ready( function(){
         alert('Something went wrong. Please try again.');
     });
   }
+
+  function turnYellow() {
+    console.log('in turn yellow')
+    console.log($(this).parent())
+    $(this).addClass('yellowBackground')
+    $('.yellowBackground').css('background-color', 'yellow')}

@@ -1,0 +1,40 @@
+header {
+    font-size: 30px;
+    background-color: rgba(48, 209, 215, 0.757);
+    color: aliceblue;
+}
+body {
+    margin: 10;
+    padding: 10;
+    font-family: 'Roboto', sans-serif;
+}
+#long{
+    max-width: max-content;
+}
+
+#inputFields {
+    margin: 10px;
+    align-items: center;
+}
+
+table {
+    border: solid;
+    border-color: rgb(206, 238, 47);
+    width: 100%;
+}
+
+th,
+td {
+    border: solid;
+    border-color: rgb(206, 238, 47);
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: rgba(48, 209, 215, 0.757);
+    color: black;
+}
+.yellowBackground{
+    background-color: yellow;
+}
